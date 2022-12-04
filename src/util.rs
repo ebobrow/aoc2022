@@ -10,3 +10,7 @@ pub fn read_lines(file_path: &str) -> Vec<String> {
         .collect::<Result<Vec<_>, std::io::Error>>()
         .unwrap()
 }
+
+pub fn sample(raw: &str) -> Vec<&str> {
+    raw.split('\n').collect()
+}
