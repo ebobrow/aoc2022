@@ -28,11 +28,9 @@ impl Stacks {
                 line_vec
                     .chunks(4)
                     .map(|c| {
-                        c.iter()
-                            .filter(|x| ![' ', '[', ']'].contains(x))
-                            .next()
+                        *c.iter()
+                            .find(|x| ![' ', '[', ']'].contains(x))
                             .unwrap_or(&' ')
-                            .clone()
                     })
                     .collect::<Vec<_>>()
             })
@@ -42,7 +40,7 @@ impl Stacks {
         for i in 0..lines[0].len() {
             for line in &lines {
                 if line[i] != ' ' {
-                    stacks[i].push(line[i].clone());
+                    stacks[i].push(line[i]);
                 }
             }
         }
