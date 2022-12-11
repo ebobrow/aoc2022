@@ -7,9 +7,10 @@ mod day4;
 mod day5;
 mod day6;
 mod day7;
+mod day8;
 mod util;
 
 fn main() {
-    println!("{}", day7::solve1());
-    println!("{}", day7::solve2());
+    println!("{}", day8::solve1());
+    println!("{}", day8::solve2());
 }
