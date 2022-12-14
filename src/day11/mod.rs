@@ -32,7 +32,6 @@ Monkey 3:
     )
 }
 
-#[derive(Debug)]
 enum Var {
     Old,
     Lit(u64),
@@ -47,7 +46,6 @@ impl Var {
     }
 }
 
-#[derive(Debug)]
 enum Op {
     Add,
     Sub,
@@ -67,7 +65,6 @@ impl Op {
     }
 }
 
-#[derive(Debug)]
 struct Monkey {
     items: Vec<u64>,
     operation: (Var, Op, Var),
