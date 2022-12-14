@@ -153,7 +153,7 @@ noop"#,
 
 fn inc_and_add(total_strengths: &mut i32, cycle: &mut i32, x: &i32) {
     *cycle += 1;
-    if [20, 60, 100, 140, 180, 220].contains(&cycle) {
+    if [20, 60, 100, 140, 180, 220].contains(cycle) {
         *total_strengths += (*cycle) * x;
     }
 }
@@ -185,7 +185,7 @@ fn inc_and_draw(cycle: &mut i32, x: &i32) {
     *cycle += 1;
     if cycle == &40 {
         *cycle = 0;
-        println!("");
+        println!();
     }
 }
 

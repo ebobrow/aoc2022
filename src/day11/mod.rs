@@ -127,7 +127,7 @@ impl Monkey {
 
 pub fn solve1() -> u64 {
     let mut monkeys: Vec<_> = read_lines("/home/elliotbobrow/Downloads/day11.txt")
-        .split(|line| line == &"")
+        .split(|line| line.is_empty())
         .map(Monkey::from)
         .collect();
     for _ in 0..20 {
@@ -155,7 +155,7 @@ pub fn solve1() -> u64 {
 
 pub fn solve2() -> u64 {
     let mut monkeys: Vec<_> = read_lines("/home/elliotbobrow/Downloads/day11.txt")
-        .split(|line| line == &"")
+        .split(|line| line.is_empty())
         .map(Monkey::from)
         .collect();
     // :| thanks https://www.reddit.com/r/adventofcode/comments/zizi43/comment/iztt8mx/?utm_source=share&utm_medium=web2x&context=3

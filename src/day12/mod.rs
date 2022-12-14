@@ -38,12 +38,12 @@ impl Pos {
 fn path_from(map: &Vec<Vec<Pos>>, start: (usize, usize)) -> u32 {
     let mut explored = Vec::new();
     let mut frontier = vec![(start, 0)];
-    while frontier.len() > 0 {
+    while !frontier.is_empty() {
         let (cur_point, cur_cost) = frontier.remove(0);
         if map[cur_point.0][cur_point.1] == Pos::Target {
             return cur_cost;
         }
-        explored.push(cur_point.clone());
+        explored.push(cur_point);
 
         let mut adjacent = Vec::new();
         for inc in [(1, 0), (0, 1), (-1, 0), (0, -1)] {
@@ -104,10 +104,10 @@ pub fn solve2() -> u32 {
         .collect();
 
     let mut aa = Vec::new();
-    for row in 0..map.len() {
-        for col in 0..map[row].len() {
-            if map[row][col] == Pos::Height(1) {
-                aa.push((row, col));
+    for (r, row) in map.iter().enumerate() {
+        for (c, item) in row.iter().enumerate() {
+            if item == &Pos::Height(1) {
+                aa.push((r, c));
             }
         }
     }

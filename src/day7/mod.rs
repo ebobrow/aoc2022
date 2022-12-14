@@ -62,17 +62,15 @@ fn gen_fs() -> HashMap<String, u64> {
                     }
                 }
             }
+        } else if line.starts_with("dir") {
+            fs.entry(cur.to_string())
+                .and_modify(|items| items.push(Item::Dir(format!("{}{}", cur, &line[4..]))))
+                .or_insert_with(|| vec![Item::Dir(format!("{}{}", cur, &line[4..]))]);
         } else {
-            if line.starts_with("dir") {
-                fs.entry(cur.to_string())
-                    .and_modify(|items| items.push(Item::Dir(format!("{}{}", cur, &line[4..]))))
-                    .or_insert(vec![Item::Dir(format!("{}{}", cur, &line[4..]))]);
-            } else {
-                let (size, _) = line.split_once(' ').unwrap();
-                fs.entry(cur.to_string())
-                    .and_modify(|items| items.push(Item::Size(size.parse().unwrap())))
-                    .or_insert(vec![Item::Size(size.parse().unwrap())]);
-            }
+            let (size, _) = line.split_once(' ').unwrap();
+            fs.entry(cur.to_string())
+                .and_modify(|items| items.push(Item::Size(size.parse().unwrap())))
+                .or_insert_with(|| vec![Item::Size(size.parse().unwrap())]);
         }
     }
 
