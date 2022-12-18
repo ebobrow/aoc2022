@@ -14,10 +14,11 @@ mod day10;
 mod day11;
 mod day12;
 mod day13;
+mod day14;
 
 mod util;
 
 fn main() {
-    println!("{}", day13::solve1());
-    println!("{}", day13::solve2());
+    println!("{}", day14::solve1());
+    println!("{}", day14::solve2());
 }
