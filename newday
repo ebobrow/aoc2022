@@ -1,0 +1,6 @@
+#!/bin/sh
+
+mkdir -p "src/day$1"
+file="src/day$1/mod.rs"
+touch "$file"
+echo -e "use crate::util;\n\nfn sample() -> Vec<&'static str> {\n  util::sample(r#\"\"#)\n}\n\npub fn solve1() -> u32 {\n  todo!()\n}\n\npub fn solve2() -> u32 {\n    todo!()\n}" >> "$file"

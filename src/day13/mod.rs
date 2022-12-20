@@ -152,14 +152,14 @@ pub fn solve2() -> usize {
     let div1 = lines
         .iter()
         .enumerate()
-        .find(|(_, line)| &line[..] == [Item::List(vec![Item::Integer(2)])])
+        .find(|(_, line)| line[..] == [Item::List(vec![Item::Integer(2)])])
         .unwrap()
         .0
         + 1;
     let div2 = lines
         .iter()
         .enumerate()
-        .find(|(_, line)| &line[..] == [Item::List(vec![Item::Integer(6)])])
+        .find(|(_, line)| line[..] == [Item::List(vec![Item::Integer(6)])])
         .unwrap()
         .0
         + 1;

@@ -44,7 +44,7 @@ pub fn solve1() -> u32 {
                 }
             });
     }
-    let lowest = coords.iter().map(|(_, y)| y).max().unwrap().clone();
+    let lowest = *coords.iter().map(|(_, y)| y).max().unwrap();
     let mut grains = 0;
     loop {
         grains += 1;
@@ -98,7 +98,7 @@ pub fn solve2() -> u32 {
                 }
             });
     }
-    let lowest = coords.iter().map(|(_, y)| y).max().unwrap().clone();
+    let lowest = *coords.iter().map(|(_, y)| y).max().unwrap();
     let floor = lowest + 2;
     let mut grains = 0;
     loop {
